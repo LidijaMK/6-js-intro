@@ -3,12 +3,14 @@
 0 - 11
 8 - 31
 -18 - 18
-
 */
 
-const nuo = -18;
-const iki = 18;
-const daliklis = 3;
+
+console.log('---------------------');
+
+const nuo = 0;
+const iki = 11;
+const daliklis = 5;
 let kiekis = 0;
 
 for (let i = nuo; i <= iki; i++) {
@@ -16,9 +18,18 @@ for (let i = nuo; i <= iki; i++) {
      kiekis++   
     }
 }
+
 const ats = `Skaiciu intervale tarp ${nuo} ir ${iki}}, besidalijanciu skaiciu be liekanos is ${daliklis} yra ${kiekis} vienetai`;
 console.log(ats);
 
 
 console.log('---------------------');
 
+
+
+/* be ciklu
+
+0 - 20      / 5
+
+0, 5, 10, 15, 20             (iki - nuo) / daliklis + 1 - kiek skaiciu kurie dalijasi be liekanos;
+i+=daliklis (vietoj i++) */
