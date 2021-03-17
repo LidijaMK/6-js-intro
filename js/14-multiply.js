@@ -4,17 +4,29 @@ function daugyba(a, b) {
     if (typeof a !== 'number') {
         return 'Pirmasis parametras turi buti skaiciaus tipo';
     }
-    if (isNaN(a) || a === Infinity || a === -Infinity) {
-        return `Pirmas parametrametras turi buti normalus skaicius ir negali buti ${a}`;
+    //if (isNaN(a) || a === Infinity || a === -Infinity) {
+    //    return `Pirmas parametras turi buti normalus skaicius ir negali buti ${a}`;
+    //}
+    //if ('' + a ==='NaN' || Math.abs(a) === Infinity) {
+    //    return `Pirmasis parametras turi buti normalus skaicius ir negali buti ${a}`;
+    //}
+    if (!isFinite(a)) {
+        return `Pirmasis parametras turi buti normalus skaicius ir negali buti ${a}`;
     }
-       
+
 
     //jeigu, b yra ne skaicius, grazinti klaidos pranesima (NaN - not a number)
     if (typeof b !== 'number') {
         return 'Antrasis parametras turi buti skaiciaus tipo';
     }
-    if (isNaN(b) || b === Infinity || b === -Infinity) {
-        return `Antrasis parametrametras turi buti normalus skaicius ir negali buti ${b}`;
+    //if (isNaN(b) || b === Infinity || b === -Infinity) {
+    //    return `Antrasis parametras turi buti normalus skaicius ir negali buti ${b}`;
+    //}
+    //if ('' + b === 'NaN' || Math.abs(b) === Infinity) {
+    //    return `Antrasis parametras turi buti normalus skaicius ir negali buti ${b}`;
+    //}
+    if (!isFinite(b)) {
+        return `Antrasis parametras turi buti normalus skaicius ir negali buti ${b}`;
     }
    
 
@@ -65,3 +77,10 @@ console.log(daugyba(3.14, 2), '->', 6.28);
 // typeof []  - "object"
 // typeof true  - "boolean"
 // typeof false  - "boolean"
+
+// '' + 565 (bet ka) = "string"
+// Math.abs (absoliuti verte)
+// ar tai yra normali baigtine reiksme (NaN ir Infinity nera baigtiniai) - isFinite()
+//The isFinite() function determines whether a number is a finite, legal number.
+
+/*This function returns false if the value is +infinity, -infinity, or NaN (Not-a-Number), otherwise it returns true.*/
