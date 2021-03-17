@@ -32,7 +32,7 @@ if (animal === 'dog') {
 
 console.log('----------');
 
-const day = 4;
+const day = 2;
 
 switch (day) {
     case 1:
@@ -47,6 +47,8 @@ switch (day) {
     default:
         console.log('Tokia diena savaiteje neegzistuoja');
 }
+
+console.log('----------');
 
 switch (day) {
     case 1:
