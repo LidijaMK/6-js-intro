@@ -14,12 +14,24 @@ function bigNum(list) {
         return 'ERROR: array is empty';
     }
     // logic
-    let biggest = list[0];
-    for (let i = 1; i < list.length; i++) {
+    let biggest = -Infinity;    // vienintelis geras pasirinkimas, kai turime Infinity saraso pradzioje 
+    for (let i = 0; i < list.length; i++) {
         const number = list[i];
+
+        // ar tai normalus skaicius
+        if (typeof number !== 'number' || !isFinite(number)) {
+            continue;                           // eina i sekancia i ciklo iteracija
+        }
+
+        // ar jis didesnis uz jau zinoma didziausa skaiciu
+
        if (number > biggest) {
            biggest = number;
        }
+    }
+    // logikos validavimas
+    if (biggest === -Infinity) {
+        return 'ERROR: sarase nerastas nei vienas normalus skaicius';
     }
 
     // result
@@ -43,6 +55,39 @@ console.log(bigNum([1, 2, 3]), '->', 3);
 console.log(bigNum([-5, 78, 14, 0, 18]), '->', 78);
 console.log(bigNum([69, 69, 69, 69, 66]), '->', 69);
 console.log(bigNum([-1, -2, -3, -4, -5, -6, -7, -8]), '->', -1);
+
+console.log(bigNum([1, 8, 3, 5, Infinity]), '->', 8);
+console.log(bigNum([1, 8, Infinity, 3, 5]), '->', 8);
+console.log(bigNum([Infinity, 1, 8, 3, 5]), '->', 8);
+
+console.log(bigNum([1, 8, 3, 5, NaN]), '->', 8);
+console.log(bigNum([1, 8, NaN, 3, 5]), '->', 8);
+console.log(bigNum([NaN, 1, 8, 3, 5]), '->', 8);
+
+console.log(bigNum([1, 8, 3, 5, '']), '->', 8);
+console.log(bigNum([1, 8, '', 3, 5]), '->', 8);
+console.log(bigNum(['', 1, 8, 3, 5]), '->', 8);
+
+console.log(bigNum([1, 8, 3, 5, 'Pomidoras']), '->', 8);
+console.log(bigNum([1, 8, 'Pomidoras', 3, 5]), '->', 8);
+console.log(bigNum(['Pomidoras', 1, 8, 3, 5]), '->', 8);
+
+console.log(bigNum([1, 8, 3, 5, undefined]), '->', 8);
+console.log(bigNum([1, 8, undefined, 3, 5]), '->', 8);
+console.log(bigNum([undefined, 1, 8, 3, 5]), '->', 8);
+
+console.log(bigNum([1, 8, 3, 5, null]), '->', 8);
+console.log(bigNum([1, 8, null, 3, 5]), '->', 8);
+console.log(bigNum([null, 1, 8, 3, 5]), '->', 8);
+
+
+console.log(bigNum([Infinity, null, 'sads', true, 888]), '->', 888);
+console.log(bigNum([Infinity, null, 888, 'sads', true]), '->', 888);
+console.log(bigNum([888, Infinity, null, 'sads', true]), '->', 888);
+
+console.log(bigNum(['888', Infinity, null, 'sads', true]));
+
+
 
 
 
