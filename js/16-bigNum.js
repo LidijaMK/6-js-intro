@@ -87,6 +87,8 @@ console.log(bigNum([888, Infinity, null, 'sads', true]), '->', 888);
 
 console.log(bigNum(['888', Infinity, null, 'sads', true]));
 
+console.log(bigNum([-5, 78, [14, 999], 0, 18]), '->', 999); // gal sort tada slice? rikiavimo algoritma pasirasyti (double sort algoritmas pasibandyti);  surasti nestintame sarase didziausia skaiciu 
+
 
 
 
