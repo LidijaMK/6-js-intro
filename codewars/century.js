@@ -18,7 +18,7 @@ centuryFromYear(2000)  returns (20)
 
 
 function century(year) {
-    // amzius is esmes yra metai / 100
+    // amzius is esmes yra: metai / 100
     //let amzius = year / 100;
    
     // suapvalinti, jog neliktu po kablelio liekanos
