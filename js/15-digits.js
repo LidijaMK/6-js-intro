@@ -7,9 +7,10 @@ function digits(skaicius) {
     //    return 'ERROR: NaN nera normalus skaicius';
     //}
 
-    if (isNaN(skaicius)) {
-        return 'ERROR: NaN nera normalus skaicius';
-    }
+    //if (isNaN(skaicius)) {
+    //    return 'ERROR: NaN nera normalus skaicius';
+    //}
+    
     if (!isFinite(skaicius)) {
         return `ERROR: ${skaicius} nera normalus skaicius`;
     }
