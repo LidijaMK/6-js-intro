@@ -15,7 +15,6 @@ function bigNum(list) {
     }
     // logic
     let biggest = -Infinity;    // vienintelis geras pasirinkimas, kai turime Infinity saraso pradzioje 
-    let secondBiggest = -Infinity;
     for (let i = 0; i < list.length; i++) {
         const number = list[i];
 
@@ -27,21 +26,19 @@ function bigNum(list) {
         // ar jis didesnis uz jau zinoma didziausa skaiciu
 
        if (number > biggest) {
-           secondBiggest = biggest;
            biggest = number;
-       } else if (number > secondBiggest) {
-           secondBiggest = number;
+     
 
        }
     }
     // logikos validavimas
-    if (secondBiggest === -Infinity) {
+    if (biggest === -Infinity) {
         return 'ERROR: sarase nerastas nei vienas normalus skaicius';
     }
 
     // result
 
-    return secondBiggest;
+    return biggest;
 }
 
 //console.log(bigNum('pomidoras'));
