@@ -15,6 +15,7 @@ function bigNum(list) {
     }
     // logic
     let biggest = -Infinity;    // vienintelis geras pasirinkimas, kai turime Infinity saraso pradzioje 
+    let secondBiggest = -Infinity;
     for (let i = 0; i < list.length; i++) {
         const number = list[i];
 
@@ -26,17 +27,21 @@ function bigNum(list) {
         // ar jis didesnis uz jau zinoma didziausa skaiciu
 
        if (number > biggest) {
+           secondBiggest = biggest;
            biggest = number;
+       } else if (number > secondBiggest) {
+           secondBiggest = number;
+
        }
     }
     // logikos validavimas
-    if (biggest === -Infinity) {
+    if (secondBiggest === -Infinity) {
         return 'ERROR: sarase nerastas nei vienas normalus skaicius';
     }
 
     // result
 
-    return biggest;
+    return secondBiggest;
 }
 
 //console.log(bigNum('pomidoras'));
@@ -87,7 +92,7 @@ console.log(bigNum([888, Infinity, null, 'sads', true]), '->', 888);
 
 console.log(bigNum(['888', Infinity, null, 'sads', true]));
 
-console.log(bigNum([-5, 78, [14, 999], 0, 18]), '->', 999); // gal sort tada slice? rikiavimo algoritma pasirasyti (double sort algoritmas pasibandyti);  surasti nestintame sarase didziausia skaiciu 
+console.log(bigNum([-5, 78, [14, 999], 0, 18]), '->', 999); // gal sort tada slice? rikiavimo algoritma pasirasyti (bouble sort algoritmas pasibandyti);  surasti nestintame sarase didziausia skaiciu 
 
 
 
