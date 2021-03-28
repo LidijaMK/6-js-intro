@@ -20,7 +20,19 @@ codewars.com/kata/56598d8076ee7a0759000087/train/javascript
 */
 
 function calculateTip(amount, rating) {
-
+    if (rating.toLowerCase() === 'terrible') {
+        return Math.ceil(amount * 0 / 100);
+    } else if (rating.toLowerCase() === 'poor') {
+        return Math.ceil(amount * 5 / 100);
+    } else if (rating.toLowerCase() === 'good') {
+        return Math.ceil(amount * 10 / 100);
+    } else if (rating.toLowerCase() === 'great') {
+        return Math.ceil(amount * 15 / 100);
+    } else if (rating.toLowerCase() === 'excellent') {
+        return Math.ceil(amount * 20 / 100);
+    } else {
+        return 'Rating not recognised';
+    }
 }
 
 console.log(calculateTip(20, "Excellent"), '->', 4);
